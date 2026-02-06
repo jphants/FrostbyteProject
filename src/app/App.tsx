@@ -7,10 +7,12 @@ import { RecipeDetail } from './components/RecipeDetail';
 import { MLEstimationFlow } from './components/MLEstimationFlow';
 import { recipes, Recipe } from './data/recipes';
 import { Typography } from './components/ui';
-import { Home, Utensils, Activity, Settings, ChevronLeft } from 'lucide-react';
+import { Home, Utensils, Activity, Settings, ChevronLeft, Smile } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import EmotionsScreen from './components/Emotions/EmotionsScreen';
 
-type Screen = 'welcome' | 'home' | 'recipes_list' | 'recipe_detail' | 'estimation' | 'settings';
+
+type Screen = 'welcome' | 'home' | 'recipes_list' | 'recipe_detail' | 'estimation' | 'settings' | 'emotions';
 
 const AppContent = () => {
   const { language, t } = useLanguage();
@@ -84,6 +86,10 @@ const AppContent = () => {
           </div>
         );
 
+      case 'emotions':
+        return <EmotionsScreen />;
+
+
       default:
         return <div className="p-10 text-center">Screen not implemented</div>;
     }
@@ -128,6 +134,13 @@ const AppContent = () => {
               onClick={() => navigateTo('home')} 
             />
             <NavIcon 
+              active={currentScreen === 'emotions'} 
+              icon={<Smile size={24} />} 
+              label="Emociones" 
+              onClick={() => navigateTo('emotions')} 
+            />
+
+            <NavIcon 
               active={currentScreen === 'recipes_list' || currentScreen === 'recipe_detail'} 
               icon={<Utensils size={24} />} 
               label={t.recipes} 
@@ -163,6 +176,8 @@ const NavIcon = ({ active, icon, label, onClick }: any) => (
     <span className="text-[10px] font-bold uppercase tracking-wider">{label}</span>
   </button>
 );
+
+
 
 const App = () => (
   <LanguageProvider>
