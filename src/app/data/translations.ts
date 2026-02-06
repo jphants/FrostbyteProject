@@ -1,4 +1,4 @@
-export type Language = 'es' | 'en' | 'qu';
+export type Language = 'es' | 'en' | 'qu' | 'sw';
 
 export interface Translation {
   welcome: string;
@@ -149,5 +149,42 @@ export const translations: Record<Language, Translation> = {
     preparation: "Yanuy ñan",
     alternatives: "Huk yanuykuna",
     ironBenefit: "Hierro nisqa qoykuynin",
-  }
+  },
+  sw: {
+    welcome: "Hello! Let's take care of your little one",
+    selectLanguage: "Select your language",
+    home: "Home",
+    recipes: "Recipes",
+    estimate: "Estimation",
+    settings: "Settings",
+    startEstimation: "Start estimation",
+    disclaimerTitle: "Important Information",
+    disclaimerText: "This tool uses artificial intelligence to estimate anemia risk based on visual indicators and symptoms. It is NOT a professional medical diagnosis.",
+    next: "Next",
+    back: "Back",
+    uploadPhotos: "Upload Photos",
+    photoNails: "Photo of nails",
+    photoEyes: "Photo of eyes (lower eyelid)",
+    uploadTip: "Ensure good natural light and that the image is sharp.",
+    questionnaire: "Questionnaire",
+    age: "Age (years)",
+    weight: "Weight (kg)",
+    height: "Height (cm)",
+    energyLevel: "How is their energy level?",
+    mood: "How has their mood been?",
+    calculate: "Estimate risk",
+    analyzing: "Analyzing information...",
+    results: "Results",
+    riskLevel: "Risk Level",
+    low: "Low",
+    medium: "Medium",
+    high: "High",
+    recommendation: "Recommendation",
+    medicalDisclaimer: "This is not a diagnosis. Always consult a healthcare professional.",
+    viewRecipe: "View Recipe",
+    ingredients: "Ingredients",
+    preparation: "Preparation",
+    alternatives: "Alternative options",
+    ironBenefit: "Iron Benefit",
+  },
 };

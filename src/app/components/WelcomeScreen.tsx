@@ -16,6 +16,7 @@ export const WelcomeScreen = ({ onContinue }: WelcomeScreenProps) => {
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'qu', name: 'Quechua', flag: '🇵🇪' },
+    { code: 'sw', name: 'Swahili', flag: '🇹🇿' },
   ];
 
   return (
