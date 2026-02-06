@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { Button, Typography, Card } from './ui';
@@ -213,18 +213,63 @@ export const MLEstimationFlow = ({ onBack }: MLEstimationProps) => {
   );
 };
 
-const PhotoPlaceholder = ({ label }: { label: string }) => (
-  <div className="border-2 border-dashed border-gray-200 rounded-3xl p-6 flex flex-col items-center justify-center gap-3 bg-gray-50 active:bg-gray-100 cursor-pointer transition-colors">
-    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
-      <Camera className="w-6 h-6 text-[#ED5C66]" />
-    </div>
-    <Typography.Small className="font-medium text-gray-700">{label}</Typography.Small>
-    <div className="flex items-center gap-2 text-xs text-gray-400">
-      <Upload className="w-3 h-3" />
-      <span>Sube o toma una foto</span>
-    </div>
-  </div>
-);
+const PhotoPlaceholder = ({ label }: { label: string }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+
+  const handleClick = () => {
+    inputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const objectUrl = URL.createObjectURL(file);
+    setPreview(objectUrl);
+  };
+
+  return (
+    <>
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        capture="environment"
+        className="hidden"
+        onChange={handleFileChange}
+      />
+
+      <div
+        onClick={handleClick}
+        className="relative border-2 border-dashed border-gray-200 rounded-3xl
+                   p-4 bg-gray-50 cursor-pointer overflow-hidden
+                   active:bg-gray-100 transition-colors h-48"
+      >
+        {preview ? (
+          <img
+            src={preview}
+            alt={label}
+            className="w-full h-full object-cover rounded-2xl"
+          />
+        ) : (
+          <div className="h-full flex flex-col items-center justify-center gap-3">
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+              <Camera className="w-6 h-6 text-[#ED5C66]" />
+            </div>
+            <Typography.Small className="font-medium text-gray-700">
+              {label}
+            </Typography.Small>
+            <div className="flex items-center gap-2 text-xs text-gray-400">
+              <Upload className="w-3 h-3" />
+              <span>Sube o toma una foto</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+};
 
 const InputGroup = ({ label, placeholder, type = 'text', options, className }: any) => (
   <div className={className}>

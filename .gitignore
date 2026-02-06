@@ -1,2 +1,8 @@
 node_modules
 .venv
+android/
+android-build/
+dist/
+*.apk
+*.aab
+*.exe
