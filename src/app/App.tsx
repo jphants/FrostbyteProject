@@ -32,7 +32,7 @@ const AppContent = () => {
         return (
           <HomeScreen 
             onStartEstimation={() => navigateTo('estimation')}
-            onViewRecipes={() => navigateTo('recipes_list')}
+            onViewRecipes={() => navigateTo('recipe_detail')}
           />
         );
 
@@ -49,6 +49,7 @@ const AppContent = () => {
               const found = all.find(r => r.id === recipeId);
 
               if (found) {
+                console.log("Receta encontrada (app.tsx):", found);
                 setSelectedRecipe(found);
                 navigateTo('recipe_detail');
               } else {

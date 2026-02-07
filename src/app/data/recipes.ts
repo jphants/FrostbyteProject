@@ -22,7 +22,7 @@ export interface Recipe {
 
 export const recipes: Recipe[] = [
   {
-    id: "1",
+    id: "sangrecita-puree",
     title: {
       es: "Puré de Sangrecita",
       en: "Sangrecita Puree",
@@ -65,7 +65,7 @@ export const recipes: Recipe[] = [
     image: "sangrecita-puree"
   },
   {
-    id: "2",
+    id: "liver-lentils",
     title: {
       es: "Hígado con Lentejas",
       en: "Liver with Lentils",
@@ -106,5 +106,5 @@ export const recipes: Recipe[] = [
       ]
     },
     image: "liver-lentils"
-  }
+  },
 ];

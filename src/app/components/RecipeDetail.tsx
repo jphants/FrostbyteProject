@@ -142,6 +142,7 @@ export const RecipeDetail = ({ recipe, onBack, onSelectRecipe }: RecipeDetailPro
       </motion.div>
     );
   }
+  console.log('Selected recipe:', recipe);
 
   return (
     <motion.div
@@ -182,82 +183,29 @@ export const RecipeDetail = ({ recipe, onBack, onSelectRecipe }: RecipeDetailPro
                 {recipe.ironBenefit[language]}
               </Typography.P>
             </Card>
+
+            <Typography.H2 className="mb-3">Ingredientes</Typography.H2>
+            <ul className="space-y-3">
+              {recipe.ingredients[language].map((ing, i) => (
+                <li key={i} className="flex items-center gap-3 text-gray-700">
+                  <div className="w-2 h-2 rounded-full bg-[#A3ECE6]" />
+                  {ing}
+                </li>
+              ))}
+            </ul>
+
+            <Typography.H2 className="mb-3">Instrucciones</Typography.H2>
+            <ol className="list-decimal list-inside">
+              {recipe.steps[language].map((step, i) => (
+                <li key={i} className="text-gray-700 mb-2">{step}</li>
+              ))}
+            </ol>
           </div>
         </>
       )}
 
       {/* ================== IRON FOODS ================== */}
-      <div className="px-1">
-        <section className="mb-10 bg-[#FFF7F8] rounded-3xl p-6">
-          <Typography.H2 className="mb-4 flex items-center gap-2">
-            <Zap className="w-5 h-5 text-[#ED5C66]" />
-            Alimentos ricos en hierro
-          </Typography.H2>
 
-          <div className="space-y-6">
-            {ironFoods.map((food, i) => (
-              <Card key={i} className="p-5 border border-[#ED5C66]/20">
-                <p className="font-bold text-lg">{food.name}</p>
-                <p className="text-sm text-gray-600 mb-2">
-                  {food.amount} · {food.dailyPercentage}%
-                </p>
-
-                <div className="h-2 bg-gray-200 rounded-full mb-3">
-                  <div
-                    className="h-full bg-[#ED5C66]"
-                    style={{ width: `${food.dailyPercentage}%` }}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  {food.recipes.map((r, k) => (
-                    <Button
-                      key={k}
-                      onClick={() => onSelectRecipe(r.id)}
-                      className="w-full bg-[#ED5C66] text-white rounded-xl py-2 text-sm font-bold"
-                    >
-                      {r.label}
-                    </Button>
-                  ))}
-                </div>
-
-                {food.alternatives.length > 0 && (
-                  <>
-                    <p className="text-sm font-semibold mt-4 mb-2">Alternativas</p>
-                    <ul className="space-y-2">
-                      {food.alternatives.map((alt, j) => (
-                        <li
-                          key={j}
-                          className="flex justify-between items-center bg-white px-4 py-2 rounded-xl"
-                        >
-                          <span className="text-sm">
-                            {alt.name} ({alt.amount})
-                          </span>
-
-                          <div className="flex items-center gap-3">
-                            <span className="text-sm font-bold text-[#ED5C66]">
-                              {alt.dailyPercentage}%
-                            </span>
-
-                            {alt.recipeId && (
-                              <button
-                                onClick={() => onSelectRecipe(alt.recipeId!)}
-                                className="text-xs font-bold underline text-[#ED5C66]"
-                              >
-                                Ver receta
-                              </button>
-                            )}
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </Card>
-            ))}
-          </div>
-        </section>
-      </div>
     </motion.div>
   );
 };
