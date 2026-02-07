@@ -1,3 +1,14 @@
+// src/data/recipes.ts
+
+// Define el tipo para una alternativa
+export type Alternative = {
+  name: string;
+  amount: string;
+  recipeId?: string;  // Si es necesario, esta propiedad puede ser opcional
+  dailyPercentage: number;
+};
+
+// Define el tipo Recipe
 export interface Recipe {
   id: string;
   title: Record<string, string>;
@@ -5,7 +16,7 @@ export interface Recipe {
   ironBenefit: Record<string, string>;
   ingredients: Record<string, string[]>;
   steps: Record<string, string[]>;
-  alternatives: Record<string, string[]>;
+  alternatives: Record<string, Alternative[]>;  // Cambiado para aceptar un array de objetos Alternative
   image: string;
 }
 
@@ -38,9 +49,18 @@ export const recipes: Recipe[] = [
       qu: ["Sira t'aqsay.", "Sira yanuy.", "Papata t'ustuy.", "Lliwtapuni chaqruy."]
     },
     alternatives: {
-      es: ["Puedes usar camote en lugar de papa.", "Agrega hígado de pollo para más nutrientes."],
-      en: ["You can use sweet potato instead of potato.", "Add chicken liver for more nutrients."],
-      qu: ["Apichata churanmankis papa ranti.", "Wallpa k'ipachata yapay."]
+      es: [
+        { name: "Camote", amount: "1 papa", recipeId: "sweet-potato-recipe", dailyPercentage: 30 },
+        { name: "Hígado de pollo", amount: "100g", recipeId: "chicken-liver-recipe", dailyPercentage: 50 }
+      ],
+      en: [
+        { name: "Sweet potato", amount: "1 potato", recipeId: "sweet-potato-recipe", dailyPercentage: 30 },
+        { name: "Chicken liver", amount: "100g", recipeId: "chicken-liver-recipe", dailyPercentage: 50 }
+      ],
+      qu: [
+        { name: "Apichata", amount: "1 papa", recipeId: "sweet-potato-recipe", dailyPercentage: 30 },
+        { name: "Wallpa k'ipa", amount: "100g", recipeId: "chicken-liver-recipe", dailyPercentage: 50 }
+      ]
     },
     image: "sangrecita-puree"
   },
@@ -72,9 +92,18 @@ export const recipes: Recipe[] = [
       qu: ["Lentejasta yanuy.", "K'ipata kankay.", "Arrozwan hayway."]
     },
     alternatives: {
-      es: ["Usa bazo de res si no tienes hígado.", "Acompaña con jugo de naranja para absorber mejor el hierro."],
-      en: ["Use beef spleen if you don't have liver.", "Accompany with orange juice to better absorb iron."],
-      qu: ["Waka bazo nisqata churay.", "Laranja aywita ukyay."]
+      es: [
+        { name: "Bazo de res", amount: "100g", recipeId: "beef-spleen-recipe", dailyPercentage: 40 },
+        { name: "Jugo de naranja", amount: "1 vaso", recipeId: "orange-juice-recipe", dailyPercentage: 20 }
+      ],
+      en: [
+        { name: "Beef spleen", amount: "100g", recipeId: "beef-spleen-recipe", dailyPercentage: 40 },
+        { name: "Orange juice", amount: "1 cup", recipeId: "orange-juice-recipe", dailyPercentage: 20 }
+      ],
+      qu: [
+        { name: "Bazo nisqata", amount: "100g", recipeId: "beef-spleen-recipe", dailyPercentage: 40 },
+        { name: "Laranja aywita", amount: "1 vaso", recipeId: "orange-juice-recipe", dailyPercentage: 20 }
+      ]
     },
     image: "liver-lentils"
   }

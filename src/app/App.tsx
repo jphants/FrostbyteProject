@@ -10,6 +10,8 @@ import { Typography } from './components/ui';
 import { Home, Utensils, Activity, Settings, ChevronLeft, Smile } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import EmotionsScreen from './components/Emotions/EmotionsScreen';
+import { ironFoods } from './components/RecipeDetail'; // 👈 IMPORTANTE
+import { getAllRecipes } from '../Utils/getAllRecipes';
 
 
 type Screen = 'welcome' | 'home' | 'recipes_list' | 'recipe_detail' | 'estimation' | 'settings' | 'emotions';
@@ -34,35 +36,28 @@ const AppContent = () => {
           />
         );
 
-      case 'recipes_list':
+      case 'recipe_detail':
         return (
-          <div className="pt-2">
-            <div className="flex items-center gap-3 mb-6">
-              <button onClick={() => navigateTo('home')} className="p-2 -ml-2 rounded-full active:bg-gray-100">
-                <ChevronLeft className="w-6 h-6 text-gray-800" />
-              </button>
-              <Typography.H1>{t.recipes}</Typography.H1>
-            </div>
-            {recipes.map(recipe => (
-              <RecipeCard 
-                key={recipe.id} 
-                recipe={recipe} 
-                onClick={() => {
-                  setSelectedRecipe(recipe);
-                  navigateTo('recipe_detail');
-                }} 
-              />
-            ))}
-          </div>
+          <RecipeDetail
+            recipe={selectedRecipe}
+            onBack={() => {
+              setSelectedRecipe(null);
+              navigateTo('home');
+            }}
+            onSelectRecipe={(recipeId) => {
+              const all = getAllRecipes();
+              const found = all.find(r => r.id === recipeId);
+
+              if (found) {
+                setSelectedRecipe(found);
+                navigateTo('recipe_detail');
+              } else {
+                console.error("Receta no encontrada:", recipeId);
+              }
+            }}
+          />
         );
 
-      case 'recipe_detail':
-        return selectedRecipe ? (
-          <RecipeDetail 
-            recipe={selectedRecipe} 
-            onBack={() => navigateTo('recipes_list')} 
-          />
-        ) : null;
 
       case 'estimation':
         return <MLEstimationFlow onBack={() => navigateTo('home')} />;
@@ -141,10 +136,10 @@ const AppContent = () => {
             />
 
             <NavIcon 
-              active={currentScreen === 'recipes_list' || currentScreen === 'recipe_detail'} 
+              active={currentScreen === 'recipe_detail'} 
               icon={<Utensils size={24} />} 
-              label={t.recipes} 
-              onClick={() => navigateTo('recipes_list')} 
+              label="Hierro" 
+              onClick={() => navigateTo('recipe_detail')} 
             />
             <NavIcon 
               active={currentScreen === 'estimation'} 
