@@ -73,7 +73,7 @@ export const HomeScreen = ({ onStartEstimation, onViewRecipes }: HomeScreenProps
         </div>
         <Card onClick={onViewRecipes} className="relative h-40 overflow-hidden p-0 mb-4 border-none shadow-md">
           <ImageWithFallback 
-            src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&q=80&w=800" 
+            src="https://cdn-icons-png.flaticon.com/512/1784/1784216.png" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
