@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Smile, Frown, Meh, SmilePlus, Angry } from 'lucide-react';
 import dayjs from 'dayjs';
 
-type Emotion = 'happy' | 'sad' | 'neutral' | 'angry' | 'excited';
+type Emotion = 'happy' | 'sad' | 'neutral' | 'angry' | 'excited' | 'sleepy';
 
 const EMOTIONS: { type: Emotion; label: string; icon: any; color: string }[] = [
   { type: 'happy', label: 'Feliz', icon: Smile, color: '#FFD700' },
@@ -10,6 +10,7 @@ const EMOTIONS: { type: Emotion; label: string; icon: any; color: string }[] = [
   { type: 'neutral', label: 'Neutral', icon: Meh, color: '#808080' },
   { type: 'angry', label: 'Enojado', icon: Angry, color: '#FF4500' },
   { type: 'excited', label: 'Emocionado', icon: SmilePlus, color: '#FF69B4' },
+  { type: 'sleepy', label: 'Somnoliento', icon: SmilePlus, color: '#9370DB' },
 ];
 
 type EmotionsRecord = Record<string, Emotion>; // key = fecha "YYYY-MM-DD"
@@ -39,25 +40,32 @@ export default function EmotionsScreen() {
   const daysInMonth = Array.from({ length: dayjs().daysInMonth() }, (_, i) => dayjs().date(i + 1).format('YYYY-MM-DD'));
 
   return (
-    <div className="p-5 min-h-screen bg-gradient-to-b from-[#FFF8F0] to-white">
+    <div className="p-5 bg-gradient-to-b to-white">
       <h1 className="text-2xl text-center mb-4 font-bold">Registro de Emociones</h1>
 
       {/* Selector de emoción de hoy */}
-      <div className="flex justify-around mb-8">
+      <div className="grid grid-cols-3 gap-4 mb-8">
         {EMOTIONS.map(({ type, label, icon: Icon, color }) => (
           <button
             key={type}
             onClick={() => handleSelectEmotion(type)}
-            className={`flex flex-col items-center justify-center gap-1 p-3 rounded-xl border-2 transition-all ${
-              selectedEmotion === type ? 'border-black scale-110' : 'border-gray-200'
-            }`}
-            style={{ backgroundColor: selectedEmotion === type ? color + '33' : 'transparent' }}
+            className={`flex flex-col items-center justify-center gap-2
+              h-24 rounded-xl border-2 transition-all
+              ${
+                selectedEmotion === type
+                  ? 'border-black scale-105'
+                  : 'border-gray-200'
+              }`}
+            style={{
+              backgroundColor: selectedEmotion === type ? color + '33' : 'transparent',
+            }}
           >
             <Icon size={32} color={color} />
-            <span className="text-sm">{label}</span>
+            <span className="text-sm font-medium text-center">{label}</span>
           </button>
         ))}
       </div>
+
 
       {/* Vista mensual */}
       <div>

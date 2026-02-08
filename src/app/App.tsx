@@ -42,7 +42,7 @@ const AppContent = () => {
             recipe={selectedRecipe}
             onBack={() => {
               setSelectedRecipe(null);
-              navigateTo('home');
+              navigateTo('recipe_detail');
             }}
             onSelectRecipe={(recipeId) => {
               const all = getAllRecipes();

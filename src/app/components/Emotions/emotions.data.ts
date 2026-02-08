@@ -4,6 +4,7 @@ export const EMOTIONS = {
   sad: { label: 'Triste', color: 'bg-gray-400', emoji: '😢' },
   anxious: { label: 'Ansioso', color: 'bg-yellow-400', emoji: '😟' },
   angry: { label: 'Enojado', color: 'bg-red-400', emoji: '😡' },
+  sleepy: { label: 'Somnoliento', color: 'bg-purple-400', emoji: '😴' },
 };
 
 export type EmotionKey = keyof typeof EMOTIONS;

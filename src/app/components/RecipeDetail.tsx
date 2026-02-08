@@ -115,15 +115,14 @@ export const RecipeDetail = ({ recipe, onBack, onSelectRecipe }: RecipeDetailPro
   const { language } = useLanguage();
 
   const imageMap: Record<string, string> = {
-    'sangrecita-puree': 'https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&q=80&w=800',
-    'liver-lentils': 'https://images.unsplash.com/photo-1522598312049-70ccda16fe43?auto=format&fit=crop&q=80&w=800',
+    'sangrecita-puree': '',
+    'liver-lentils': '',
   };
 
   // 🧲 Modo lista de alimentos
   if (!recipe) {
     return (
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-4">
-        <section className="bg-[#FFF7F8] rounded-3xl p-6">
           <Typography.H2 className="mb-4">Alimentos ricos en hierro</Typography.H2>
           <div className="space-y-6">
             {ironFoods.map((food, i) => (
@@ -138,7 +137,7 @@ export const RecipeDetail = ({ recipe, onBack, onSelectRecipe }: RecipeDetailPro
               </Card>
             ))}
           </div>
-        </section>
+
       </motion.div>
     );
   }
