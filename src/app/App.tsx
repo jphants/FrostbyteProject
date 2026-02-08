@@ -122,7 +122,7 @@ const AppContent = () => {
 
         {/* Bottom Navigation */}
         {currentScreen !== 'welcome' && (
-          <nav className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-gray-100 px-6 py-4 pb-8 flex justify-between items-center z-50">
+          <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-gray-100 px-6 py-4 pb-8 flex justify-between items-center z-50">
             <NavIcon 
               active={currentScreen === 'home'} 
               icon={<Home size={24} />} 
@@ -140,7 +140,10 @@ const AppContent = () => {
               active={currentScreen === 'recipe_detail'} 
               icon={<Utensils size={24} />} 
               label="Hierro" 
-              onClick={() => navigateTo('recipe_detail')} 
+              onClick={() => {
+                setSelectedRecipe(null);   // 👈 LIMPIEZA CLAVE
+                navigateTo('recipe_detail');
+              }} 
             />
             <NavIcon 
               active={currentScreen === 'estimation'} 
