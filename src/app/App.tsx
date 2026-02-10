@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import EmotionsScreen from './components/Emotions/EmotionsScreen';
 import { getAllRecipes } from '../Utils/getAllRecipes';
 import { train } from '../Utils/trainModel';
-
+import * as tf from '@tensorflow/tfjs';
 type Screen =
   | 'welcome'
   | 'home'
@@ -47,6 +47,29 @@ const handleTrain = async () => {
   }
 };
 
+async function testModel() {
+  try {
+    console.log('📦 Cargando modelo...');
+    const model = await tf.loadLayersModel('/models/eyes-anemia-model.json');
+
+    console.log('✅ Modelo cargado');
+    model.summary();
+
+    // 🔹 INPUT DUMMY (1280 features)
+    const input = tf.randomNormal([1, 1280]);
+
+    const output = model.predict(input) as tf.Tensor;
+
+    const result = await output.array();
+    console.log('🎯 Output del modelo:', result);
+    // Ej: [[0.83, 0.17]]
+
+    input.dispose();
+    output.dispose();
+  } catch (error) {
+    console.error('❌ Error probando el modelo:', error);
+  }
+}
   const renderScreen = () => {
     switch (currentScreen) {
       case 'welcome':
@@ -111,6 +134,15 @@ const handleTrain = async () => {
                   ✅ Modelo entrenado!
                 </div>
               )}
+
+              <button
+                onClick={testModel}
+                className="w-full p-4 bg-blue-100 rounded-2xl text-blue-700 font-bold mt-2"
+              >
+                🔍 Probar modelo (DEV)
+              </button>
+
+
             </div>
           </div>
         );
