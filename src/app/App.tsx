@@ -6,12 +6,13 @@ import { RecipeDetail } from './components/RecipeDetail';
 import { MLEstimationFlow } from './components/MLEstimationFlow';
 import { Recipe } from './data/recipes';
 import { Typography } from './components/ui';
-import { Home, Utensils, Activity, Settings, Smile } from 'lucide-react';
+import { Home, Utensils, Activity, Settings, Smile, InfoIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import EmotionsScreen from './components/Emotions/EmotionsScreen';
 import { getAllRecipes } from '../Utils/getAllRecipes';
 import { train } from '../Utils/trainModel';
 import * as tf from '@tensorflow/tfjs';
+import { InformationScreen } from './components/information/InformationScreen';
 type Screen =
   | 'welcome'
   | 'home'
@@ -19,7 +20,8 @@ type Screen =
   | 'recipe_detail'
   | 'estimation'
   | 'settings'
-  | 'emotions';
+  | 'emotions'
+  | 'information';
 
 const AppContent = () => {
   const { language, t } = useLanguage();
@@ -150,6 +152,9 @@ async function testModel() {
       case 'emotions':
         return <EmotionsScreen />;
 
+      case 'information':
+        return <InformationScreen />;
+
       default:
         return <div className="p-10 text-center">Screen not implemented</div>;
     }
@@ -193,13 +198,13 @@ async function testModel() {
             <NavIcon
               active={currentScreen === 'emotions'}
               icon={<Smile size={24} />}
-              label="Emociones"
+              label="Animo"
               onClick={() => navigateTo('emotions')}
             />
             <NavIcon
               active={currentScreen === 'recipe_detail'}
               icon={<Utensils size={24} />}
-              label="Hierro"
+              label="Dieta"
               onClick={() => {
                 setSelectedRecipe(null);
                 navigateTo('recipe_detail');
@@ -216,6 +221,12 @@ async function testModel() {
               icon={<Settings size={24} />}
               label={t.settings}
               onClick={() => navigateTo('settings')}
+            />
+            <NavIcon
+              active={currentScreen === 'information'}
+              icon={<InfoIcon size={24} />}
+              label="Info"
+              onClick={() => navigateTo('information')}
             />
           </nav>
         )}

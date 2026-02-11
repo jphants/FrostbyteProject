@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Smile, Frown, Meh, SmilePlus, Angry } from 'lucide-react';
 import dayjs from 'dayjs';
-
+import { Button, Typography, Card } from '../ui';
 type Emotion = 'happy' | 'sad' | 'neutral' | 'angry' | 'excited' | 'sleepy';
 
 const EMOTIONS: { type: Emotion; label: string; icon: any; color: string }[] = [
@@ -86,6 +86,17 @@ export default function EmotionsScreen() {
             );
           })}
         </div>
+      </div>
+
+      <div>
+        
+              <Card className="mt-5 border-l-4 border-[#ED5C66]">
+                <Typography.P className="text-sm italic">
+                  Este registro es privado y solo se almacena en tu dispositivo para ayudarte a identificar patrones emocionales a lo largo del tiempo.
+                  Si notas que tu hijo está frecuentemente triste o enojado, considera hablar con un profesional de la salud para obtener apoyo adicional.
+                </Typography.P>
+              </Card>
+
       </div>
     </div>
   );

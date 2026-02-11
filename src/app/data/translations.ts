@@ -36,6 +36,42 @@ export interface Translation {
   preparation: string;
   alternatives: string;
   ironBenefit: string;
+
+  /* INFORMATION SECTION */
+
+  infoTitle: string;
+
+  keyConceptsTitle: string;
+  keyConceptsText: string;
+
+  ironDeficiencyTitle: string;
+  ironDeficiencyText: string;
+
+  relatedFactorsTitle: string;
+  relatedFactorsText: string;
+
+  nonInvasiveTitle: string;
+  visibleSignsTitle: string;
+
+  skinMucosa: string;
+  skinMucosaText: string;
+
+  hairNails: string;
+  hairNailsText: string;
+
+  mouth: string;
+  mouthText: string;
+
+  moodFatigueTitle: string;
+
+  chronicFatigue: string;
+  chronicFatigueText: string;
+
+  cognitiveAlterations: string;
+  cognitiveAlterationsText: string;
+
+  lowPerformance: string;
+  lowPerformanceText: string;
 }
 
 export const translations: Record<Language, Translation> = {
@@ -44,7 +80,7 @@ export const translations: Record<Language, Translation> = {
     selectLanguage: "Selecciona tu idioma",
     home: "Inicio",
     recipes: "Recetas",
-    estimate: "Estimación",
+    estimate: "AI",
     settings: "Ajustes",
     startEstimation: "Iniciar estimación",
     disclaimerTitle: "Información Importante",
@@ -75,44 +111,136 @@ export const translations: Record<Language, Translation> = {
     preparation: "Preparación",
     alternatives: "Opciones alternativas",
     ironBenefit: "Aporte de Hierro",
+    
+    /*information section*/
+    
+    infoTitle: "Información sobre Anemia",
+
+  keyConceptsTitle: "Conceptos Clave",
+  keyConceptsText:
+    "La anemia es un trastorno hematológico definido por la disminución de hemoglobina o glóbulos rojos, reduciendo la capacidad de transporte de oxígeno hacia los tejidos.",
+
+  ironDeficiencyTitle: "Anemia Ferropénica",
+  ironDeficiencyText:
+    "Es la causa más frecuente de anemia, producida por deficiencia de hierro. Representa el 50% de los casos a nivel mundial y afecta especialmente a niños y gestantes.",
+
+  relatedFactorsTitle: "Enfermedades y Factores Relacionados",
+  relatedFactorsText:
+    "Puede asociarse a deficiencia de vitamina B12, ácido fólico, enfermedades crónicas, inflamación, parasitosis y hemoglobinopatías. En contextos vulnerables, suele coexistir con desnutrición e infecciones recurrentes, afectando el desarrollo cognitivo y físico.",
+
+  nonInvasiveTitle: "Estimación No Invasiva",
+  visibleSignsTitle: "Signos Físicos Visibles",
+
+  skinMucosa: "Piel y mucosas",
+  skinMucosaText:
+    "Palidez en conjuntivas, mucosa oral, labios y palmas.",
+
+  hairNails: "Cabello y uñas",
+  hairNailsText:
+    "Fragilidad, caída aumentada y uñas en forma de cuchara (coiloniquia).",
+
+  mouth: "Boca",
+  mouthText:
+    "Queilitis angular y glositis atrófica.",
+
+  moodFatigueTitle: "Estado de Ánimo y Fatiga",
+
+  chronicFatigue: "Fatiga crónica",
+  chronicFatigueText:
+    "Cansancio constante y debilidad generalizada.",
+
+  cognitiveAlterations: "Alteraciones cognitivas",
+  cognitiveAlterationsText:
+    "Irritabilidad, apatía, falta de concentración e insomnio.",
+
+  lowPerformance: "Bajo rendimiento",
+  lowPerformanceText:
+    "Disminución del desempeño escolar o laboral.",
   },
   en: {
-    welcome: "Hello! Let's take care of your little one",
-    selectLanguage: "Select your language",
-    home: "Home",
-    recipes: "Recipes",
-    estimate: "Estimation",
-    settings: "Settings",
-    startEstimation: "Start estimation",
-    disclaimerTitle: "Important Information",
-    disclaimerText: "This tool uses artificial intelligence to estimate anemia risk based on visual indicators and symptoms. It is NOT a professional medical diagnosis.",
-    next: "Next",
-    back: "Back",
-    uploadPhotos: "Upload Photos",
-    photoNails: "Photo of nails",
-    photoEyes: "Photo of eyes (lower eyelid)",
-    uploadTip: "Ensure good natural light and that the image is sharp.",
-    questionnaire: "Questionnaire",
-    age: "Age (years)",
-    weight: "Weight (kg)",
-    height: "Height (cm)",
-    energyLevel: "How is their energy level?",
-    mood: "How has their mood been?",
-    calculate: "Estimate risk",
-    analyzing: "Analyzing information...",
-    results: "Results",
-    riskLevel: "Risk Level",
-    low: "Low",
-    medium: "Medium",
-    high: "High",
-    recommendation: "Recommendation",
-    medicalDisclaimer: "This is not a diagnosis. Always consult a healthcare professional.",
-    viewRecipe: "View Recipe",
-    ingredients: "Ingredients",
-    preparation: "Preparation",
-    alternatives: "Alternative options",
-    ironBenefit: "Iron Benefit",
-  },
+  welcome: "Hello! Let's take care of your little one",
+  selectLanguage: "Select your language",
+  home: "Home",
+  recipes: "Recipes",
+  estimate: "AI",
+  settings: "Settings",
+  startEstimation: "Start estimation",
+  disclaimerTitle: "Important Information",
+  disclaimerText:
+    "This tool uses artificial intelligence to estimate anemia risk based on visual indicators and symptoms. It is NOT a professional medical diagnosis.",
+  next: "Next",
+  back: "Back",
+  uploadPhotos: "Upload Photos",
+  photoNails: "Photo of nails",
+  photoEyes: "Photo of eyes (lower eyelid)",
+  uploadTip: "Ensure good natural light and that the image is sharp.",
+  questionnaire: "Questionnaire",
+  age: "Age (years)",
+  weight: "Weight (kg)",
+  height: "Height (cm)",
+  energyLevel: "How is their energy level?",
+  mood: "How has their mood been?",
+  calculate: "Estimate risk",
+  analyzing: "Analyzing information...",
+  results: "Results",
+  riskLevel: "Risk Level",
+  low: "Low",
+  medium: "Medium",
+  high: "High",
+  recommendation: "Recommendation",
+  medicalDisclaimer:
+    "This is not a diagnosis. Always consult a healthcare professional.",
+  viewRecipe: "View Recipe",
+  ingredients: "Ingredients",
+  preparation: "Preparation",
+  alternatives: "Alternative options",
+  ironBenefit: "Iron Benefit",
+
+  /* INFORMATION SECTION */
+
+  infoTitle: "Anemia Information",
+
+  keyConceptsTitle: "Key Concepts",
+  keyConceptsText:
+    "Anemia is a hematological disorder defined by a decrease in hemoglobin or red blood cells, reducing the blood's ability to transport oxygen to tissues.",
+
+  ironDeficiencyTitle: "Iron Deficiency Anemia",
+  ironDeficiencyText:
+    "It is the most common type of anemia, caused by iron deficiency. It represents about 50% of cases worldwide and mainly affects children and pregnant women.",
+
+  relatedFactorsTitle: "Related Diseases and Factors",
+  relatedFactorsText:
+    "It may be associated with vitamin B12 or folic acid deficiency, chronic diseases, inflammation, parasitic infections, and hemoglobin disorders. In vulnerable settings, it often coexists with malnutrition and recurrent infections, affecting cognitive and physical development.",
+
+  nonInvasiveTitle: "Non-Invasive Estimation",
+  visibleSignsTitle: "Visible Physical Signs",
+
+  skinMucosa: "Skin and mucosa",
+  skinMucosaText:
+    "Paleness in the lower eyelids, oral mucosa, lips, and palms.",
+
+  hairNails: "Hair and nails",
+  hairNailsText:
+    "Brittle hair, increased hair loss, and spoon-shaped nails (koilonychia).",
+
+  mouth: "Mouth",
+  mouthText:
+    "Angular cheilitis and atrophic glossitis.",
+
+  moodFatigueTitle: "Mood and Fatigue",
+
+  chronicFatigue: "Chronic fatigue",
+  chronicFatigueText:
+    "Persistent tiredness and generalized weakness.",
+
+  cognitiveAlterations: "Cognitive changes",
+  cognitiveAlterationsText:
+    "Irritability, apathy, difficulty concentrating, and insomnia.",
+
+  lowPerformance: "Low performance",
+  lowPerformanceText:
+    "Reduced academic or work performance.",
+},
   qu: {
     welcome: "¡Rimaykullayki! Wawaykipa qhalikayninta qhawasunchis",
     selectLanguage: "Simiykita akllay",
@@ -149,6 +277,51 @@ export const translations: Record<Language, Translation> = {
     preparation: "Yanuy ñan",
     alternatives: "Huk yanuykuna",
     ironBenefit: "Hierro nisqa qoykuynin",
+    /* INFORMATION SECTION */
+
+  infoTitle: "Anemia Information",
+
+  keyConceptsTitle: "Key Concepts",
+  keyConceptsText:
+    "Anemia is a hematological disorder defined by a decrease in hemoglobin or red blood cells, reducing the blood's ability to transport oxygen to tissues.",
+
+  ironDeficiencyTitle: "Iron Deficiency Anemia",
+  ironDeficiencyText:
+    "It is the most common type of anemia, caused by iron deficiency. It represents about 50% of cases worldwide and mainly affects children and pregnant women.",
+
+  relatedFactorsTitle: "Related Diseases and Factors",
+  relatedFactorsText:
+    "It may be associated with vitamin B12 or folic acid deficiency, chronic diseases, inflammation, parasitic infections, and hemoglobin disorders. In vulnerable settings, it often coexists with malnutrition and recurrent infections, affecting cognitive and physical development.",
+
+  nonInvasiveTitle: "Non-Invasive Estimation",
+  visibleSignsTitle: "Visible Physical Signs",
+
+  skinMucosa: "Skin and mucosa",
+  skinMucosaText:
+    "Paleness in the lower eyelids, oral mucosa, lips, and palms.",
+
+  hairNails: "Hair and nails",
+  hairNailsText:
+    "Brittle hair, increased hair loss, and spoon-shaped nails (koilonychia).",
+
+  mouth: "Mouth",
+  mouthText:
+    "Angular cheilitis and atrophic glossitis.",
+
+  moodFatigueTitle: "Mood and Fatigue",
+
+  chronicFatigue: "Chronic fatigue",
+  chronicFatigueText:
+    "Persistent tiredness and generalized weakness.",
+
+  cognitiveAlterations: "Cognitive changes",
+  cognitiveAlterationsText:
+    "Irritability, apathy, difficulty concentrating, and insomnia.",
+
+  lowPerformance: "Low performance",
+  lowPerformanceText:
+    "Reduced academic or work performance.",
+
   },
   sw: {
     welcome: "Hello! Let's take care of your little one",
@@ -186,5 +359,49 @@ export const translations: Record<Language, Translation> = {
     preparation: "Preparation",
     alternatives: "Alternative options",
     ironBenefit: "Iron Benefit",
+    /* INFORMATION SECTION */
+
+  infoTitle: "Anemia Information",
+
+  keyConceptsTitle: "Key Concepts",
+  keyConceptsText:
+    "Anemia is a hematological disorder defined by a decrease in hemoglobin or red blood cells, reducing the blood's ability to transport oxygen to tissues.",
+
+  ironDeficiencyTitle: "Iron Deficiency Anemia",
+  ironDeficiencyText:
+    "It is the most common type of anemia, caused by iron deficiency. It represents about 50% of cases worldwide and mainly affects children and pregnant women.",
+
+  relatedFactorsTitle: "Related Diseases and Factors",
+  relatedFactorsText:
+    "It may be associated with vitamin B12 or folic acid deficiency, chronic diseases, inflammation, parasitic infections, and hemoglobin disorders. In vulnerable settings, it often coexists with malnutrition and recurrent infections, affecting cognitive and physical development.",
+
+  nonInvasiveTitle: "Non-Invasive Estimation",
+  visibleSignsTitle: "Visible Physical Signs",
+
+  skinMucosa: "Skin and mucosa",
+  skinMucosaText:
+    "Paleness in the lower eyelids, oral mucosa, lips, and palms.",
+
+  hairNails: "Hair and nails",
+  hairNailsText:
+    "Brittle hair, increased hair loss, and spoon-shaped nails (koilonychia).",
+
+  mouth: "Mouth",
+  mouthText:
+    "Angular cheilitis and atrophic glossitis.",
+
+  moodFatigueTitle: "Mood and Fatigue",
+
+  chronicFatigue: "Chronic fatigue",
+  chronicFatigueText:
+    "Persistent tiredness and generalized weakness.",
+
+  cognitiveAlterations: "Cognitive changes",
+  cognitiveAlterationsText:
+    "Irritability, apathy, difficulty concentrating, and insomnia.",
+
+  lowPerformance: "Low performance",
+  lowPerformanceText:
+    "Reduced academic or work performance.",
   },
 };
