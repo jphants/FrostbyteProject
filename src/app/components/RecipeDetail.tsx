@@ -35,7 +35,7 @@ export const ironFoods: IronFood[] = [
     dailyPercentage: 45,
     recipes: [
       { id: 'liver-lentils', label: 'Hígado con lentejas' },
-      { id: 'liver-onions', label: 'Hígado encebollado' },
+      { id: 'espagueti-salsa-roja-higado', label: 'Espagueti en salsa roja con hígado' },
     ],
     alternatives: [
       {
@@ -53,54 +53,42 @@ export const ironFoods: IronFood[] = [
     dailyPercentage: 40,
     recipes: [
       { id: 'sangrecita-puree', label: 'Puré de sangrecita' },
-      { id: 'sangrecita-rice', label: 'Sangrecita con arroz' },
     ],
     alternatives: [],
   },
   {
-    name: 'Lentejas',
-    amount: '1 taza',
-    ironMg: 3.3,
-    dailyPercentage: 30,
-    recipes: [
-      { id: 'lentils-stew', label: 'Guiso de lentejas' },
-      { id: 'lentils-veggies', label: 'Lentejas con verduras' },
-    ],
-    alternatives: [],
-  },
-  {
-    name: 'Espinaca',
-    amount: '1 taza',
-    ironMg: 3.6,
-    dailyPercentage: 28,
-    recipes: [
-      { id: 'spinach-omelette', label: 'Tortilla de espinaca' },
-      { id: 'spinach-soup', label: 'Sopa de espinaca' },
-    ],
-    alternatives: [],
-  },
-  {
-    name: 'Hígado de pollo',
+    name: 'Quinoa',
     amount: '100 g',
-    ironMg: 5.0,
-    dailyPercentage: 38,
+    ironMg: 2.8,
+    dailyPercentage: 20,
     recipes: [
-      { id: 'chicken-liver-garlic', label: 'Hígado de pollo al ajo' },
-      { id: 'chicken-liver-rice', label: 'Hígado con arroz' },
+      { id: 'quinoa-tortilla', label: 'Tortilla de quinua' },
+      
     ],
     alternatives: [],
   },
   {
-    name: 'Quinua',
-    amount: '1 taza',
+    name: 'Beterraga',
+    amount: '100 g',
     ironMg: 2.8,
-    dailyPercentage: 25,
+    dailyPercentage: 20,
     recipes: [
-      { id: 'quinoa-salad', label: 'Ensalada de quinua' },
-      { id: 'quinoa-stew', label: 'Guiso de quinua' },
+      { id: 'ravioli-remolacha-salsa-roja', label: 'Salsa roja de beterraga' },
+      
     ],
     alternatives: [],
   },
+  {
+    name: 'Garbanzo',
+    amount: '100 g',
+    ironMg: 2.8,
+    dailyPercentage: 20,
+    recipes: [
+      { id: 'pan-harina-garbanzo', label: 'Pan de harina con garbanzo' },
+      
+    ],
+    alternatives: [],
+  }
 ];
 
 // ================== PROPS ==================
