@@ -1,9 +1,10 @@
 // src/ui/emotions/EmotionCalendar.tsx
 import { EMOTIONS } from './emotions.data';
-import { useEmotions } from './useEmotions';
+import { useEmotionsContext } from './EmotionContext';
+
 
 export const EmotionCalendar = () => {
-  const { emotions } = useEmotions();
+  const { emotions } = useEmotionsContext();
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth();

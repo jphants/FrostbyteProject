@@ -16,5 +16,34 @@ export const useEmotions = () => {
     localStorage.setItem('emotions', JSON.stringify(updated));
   };
 
-  return { emotions, saveEmotion };
+  const getMonthlyStats = (year: number, month: number) => {
+    const counts: Record<EmotionKey, number> = {
+    sleepy: 0,
+    down: 0,
+    irritated: 0,
+    energy: 0,
+  };
+
+  Object.entries(emotions).forEach(([date, emotion]) => {
+    const d = new Date(date);
+    if (d.getFullYear() === year && d.getMonth() === month) {
+    counts[emotion]++;
+    }
+  });
+
+  let dominant: EmotionKey | null = null;
+  let max = 0;
+
+
+  (Object.keys(counts) as EmotionKey[]).forEach(k => {
+    if (counts[k] > max) {
+      max = counts[k];
+      dominant = k;
+    }
+  });
+
+  return { counts, dominant };
+  };
+  
+return { emotions, saveEmotion, getMonthlyStats };
 };
