@@ -3,6 +3,7 @@ node_modules
 android/
 android-build/
 dist/
+MachineLearning/data
 *.apk
 *.aab
 *.exe

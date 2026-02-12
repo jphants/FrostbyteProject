@@ -62,7 +62,7 @@ export const ironFoods: IronFood[] = [
     ironMg: 2.8,
     dailyPercentage: 20,
     recipes: [
-      { id: 'quinoa-tortilla', label: 'Tortilla de quinua' },
+      { id: 'tortilla-quinua', label: 'Tortilla de quinua' },
       
     ],
     alternatives: [],

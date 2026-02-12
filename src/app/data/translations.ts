@@ -141,7 +141,7 @@ export const translations: Record<Language, Translation> = {
 
   mouth: "Boca",
   mouthText:
-    "Queilitis angular y glositis atrófica.",
+    "Fisuras en comisuras labiales, lengua lisa, brillante rojiza.",
 
   moodFatigueTitle: "Estado de Ánimo y Fatiga",
 
@@ -225,7 +225,7 @@ export const translations: Record<Language, Translation> = {
 
   mouth: "Mouth",
   mouthText:
-    "Angular cheilitis and atrophic glossitis.",
+    "Fissures at the corners of the lips, smooth, shiny reddish tongue.",
 
   moodFatigueTitle: "Mood and Fatigue",
 
@@ -306,7 +306,7 @@ export const translations: Record<Language, Translation> = {
 
   mouth: "Mouth",
   mouthText:
-    "Angular cheilitis and atrophic glossitis.",
+    "Fissures at the corners of the lips, smooth, shiny reddish tongue.",
 
   moodFatigueTitle: "Mood and Fatigue",
 
