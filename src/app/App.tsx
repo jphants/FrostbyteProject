@@ -6,22 +6,17 @@ import { RecipeDetail } from './components/RecipeDetail';
 import { MLEstimationFlow } from './components/MLEstimationFlow';
 import { Recipe } from './data/recipes';
 import { Typography } from './components/ui';
-import { Home, Utensils, Activity, Settings, Smile, InfoIcon } from 'lucide-react';
+import { Home, Utensils, Activity, Settings, Smile, InfoIcon, AlertCircleIcon } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import EmotionsScreen from './components/Emotions/EmotionsScreen';
 import { getAllRecipes } from '../Utils/getAllRecipes';
 import { train } from '../Utils/trainModel';
 import * as tf from '@tensorflow/tfjs';
 import { InformationScreen } from './components/information/InformationScreen';
-type Screen =
-  | 'welcome'
-  | 'home'
-  | 'recipes_list'
-  | 'recipe_detail'
-  | 'estimation'
-  | 'settings'
-  | 'emotions'
-  | 'information';
+import { SettingsScreen } from './components/settings/settingsScreen';
+
+import type { Screen } from '../types/navigation';
+
 
 const AppContent = () => {
   const { language, t } = useLanguage();
@@ -108,46 +103,7 @@ async function testModel() {
         return <MLEstimationFlow onBack={() => navigateTo('home')} />;
 
       case 'settings':
-        return (
-          <div className="pt-2">
-            <Typography.H1 className="mb-6">{t.settings}</Typography.H1>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-2xl flex justify-between items-center">
-                <span className="font-medium text-gray-700">Idioma</span>
-                <span className="text-[#ED5C66] font-bold uppercase">{language}</span>
-              </div>
-
-              <button
-                onClick={() => navigateTo('welcome')}
-                className="w-full p-4 bg-gray-100 rounded-2xl text-left font-medium text-gray-600 active:bg-gray-200 transition-colors"
-              >
-                Cambiar Idioma / Cerrar Sesión
-              </button>
-
-              <button
-                onClick={handleTrain}
-                className="w-full p-4 bg-red-100 rounded-2xl text-red-700 font-bold mt-2"
-              >
-                🧠 Entrenar modelo (DEV)
-              </button>
-
-              {trained && (
-                <div className="text-green-600 font-bold mt-2">
-                  ✅ Modelo entrenado!
-                </div>
-              )}
-
-              <button
-                onClick={testModel}
-                className="w-full p-4 bg-blue-100 rounded-2xl text-blue-700 font-bold mt-2"
-              >
-                🔍 Probar modelo (DEV)
-              </button>
-
-
-            </div>
-          </div>
-        );
+        return <SettingsScreen navigateTo={navigateTo} t={t} />;
 
       case 'emotions':
         return <EmotionsScreen />;
@@ -224,8 +180,8 @@ async function testModel() {
             />
             <NavIcon
               active={currentScreen === 'information'}
-              icon={<InfoIcon size={24} />}
-              label="Info"
+              icon={<AlertCircleIcon size={24} />}
+              label="Alerta"
               onClick={() => navigateTo('information')}
             />
           </nav>
