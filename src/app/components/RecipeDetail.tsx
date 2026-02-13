@@ -105,7 +105,20 @@ export const RecipeDetail = ({ recipe, onBack, onSelectRecipe }: RecipeDetailPro
   const imageMap: Record<string, string> = {
     'sangrecita-puree': '',
     'liver-lentils': '',
+    'espagueti-salsa-roja-higado': '',
+    'tortilla-quinua': '',
+    'ravioli-remolacha-salsa-roja': '',
+    'pan-harina-garbanzo': '',
   };
+
+  /*const imageMap: Record<string, string> = {
+    'sangrecita-puree': 'https://cdn0.recetasgratis.net/es/posts/2/0/1/sangrecita_de_pollo_10102_paso_2_600.jpg',
+    'liver-lentils': 'https://img-global.cpcdn.com/recipes/837f560c3c3cf9e9/1200x630cq80/photo.jpg',
+    'espagueti-salsa-roja-higado': 'https://i.ytimg.com/vi/3bVtWvR3Kc0/maxresdefault.jpg',
+    'tortilla-quinua': 'https://okdiario.com/img/2018/07/30/receta-de-tortilla-de-quinoa.jpg',
+    'ravioli-remolacha-salsa-roja': 'https://img-global.cpcdn.com/recipes/578b6bd416ccc695/680x781f0.5_0.5599_1.0q80/ravioles-de-remolacha-foto-principal.jpg',
+    'pan-harina-garbanzo': 'https://i.pinimg.com/736x/31/0a/3b/310a3b74896894f51763f235f54571fe.jpg',
+  };*/
 
   // 🧲 Modo lista de alimentos
   if (!recipe) {
