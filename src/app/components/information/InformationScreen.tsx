@@ -1,12 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Typography, Card } from '../ui';
-import { Info, Activity, HeartPulse, Brain, Sparkles } from 'lucide-react';
-import { useLanguage } from '../../context/LanguageContext';
+import { AlertTriangle, Stethoscope, Brain, Utensils, Pill } from 'lucide-react';
 
 export const InformationScreen = () => {
-  const { t } = useLanguage();
-
   return (
     <div className="space-y-6 pb-10">
 
@@ -16,101 +13,104 @@ export const InformationScreen = () => {
           AnemiaGuard
         </Typography.Small>
         <Typography.H1 className="text-xl">
-          {t.infoTitle}
+          Signos de Alerta y Efectos Secundarios
         </Typography.H1>
       </header>
 
-      {/* Conceptos Clave */}
+      {/* SIGNOS DE ALERTA */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <Card className="p-6 bg-gradient-to-br from-[#ED5C66] to-[#ff8c94] text-white border-none shadow-lg shadow-[#ED5C66]/20">
+        <Card className="p-6 bg-red-50 border-l-4 border-red-500 shadow-md">
           <div className="flex items-start gap-3 mb-4">
-            <Sparkles className="w-6 h-6 text-white" />
-            <Typography.H2 className="text-white text-lg">
-              {t.keyConceptsTitle}
+            <AlertTriangle className="w-6 h-6 text-red-600" />
+            <Typography.H2 className="text-red-700 text-lg font-bold">
+              🔴 Signos de Alerta
             </Typography.H2>
           </div>
-          <Typography.P className="text-white/90 text-sm leading-relaxed">
-            {t.keyConceptsText}
+
+          <Typography.P className="text-sm text-red-800 mb-4 font-medium">
+            La falta de adherencia al tratamiento puede hacer que los síntomas
+            perduren o se agraven. Se debe vigilar:
           </Typography.P>
-        </Card>
-      </motion.div>
 
-      {/* Anemia Ferropénica */}
-      <Card className="p-5 bg-orange-50 border-none">
-        <div className="flex items-start gap-3 mb-2">
-          <HeartPulse className="w-6 h-6 text-orange-400" />
-          <Typography.Small className="font-bold">
-            {t.ironDeficiencyTitle}
-          </Typography.Small>
-        </div>
-        <Typography.P className="text-sm text-gray-700">
-          {t.ironDeficiencyText}
-        </Typography.P>
-      </Card>
-
-      {/* Factores Relacionados */}
-      <Card className="p-5 bg-blue-50 border-none">
-        <div className="flex items-start gap-3 mb-2">
-          <Info className="w-6 h-6 text-blue-500" />
-          <Typography.Small className="font-bold text-blue-800">
-            {t.relatedFactorsTitle}
-          </Typography.Small>
-        </div>
-        <Typography.P className="text-sm text-blue-700">
-          {t.relatedFactorsText}
-        </Typography.P>
-      </Card>
-
-      {/* Estimación No Invasiva */}
-      <section className="space-y-4">
-        <Typography.H2 className="text-lg">
-          {t.nonInvasiveTitle}
-        </Typography.H2>
-
-        <Card className="p-5 bg-[#A3ECE6]/10 border-none">
-          <div className="flex items-start gap-3 mb-3">
-            <Activity className="w-6 h-6 text-[#5ccfc5]" />
-            <Typography.Small className="font-bold">
-              {t.visibleSignsTitle}
-            </Typography.Small>
-          </div>
-          <ul className="text-sm text-gray-700 space-y-2 list-disc list-inside">
-            <li>
-              <strong>{t.skinMucosa}:</strong> {t.skinMucosaText}
+          <ul className="space-y-3 text-sm text-gray-800">
+            <li className="flex gap-2">
+              <Stethoscope className="w-4 h-4 mt-1 text-red-500" />
+              <span>
+                <strong>Síntomas cardiopulmonares:</strong> dificultad respiratoria
+                al esfuerzo, taquicardia o soplos.
+              </span>
             </li>
-            <li>
-              <strong>{t.hairNails}:</strong> {t.hairNailsText}
+
+            <li className="flex gap-2">
+              <Utensils className="w-4 h-4 mt-1 text-red-500" />
+              <span>
+                <strong>Trastornos de conducta (Pica):</strong> tendencia a comer
+                tierra (geofagia) o hielo (pagofagia).
+              </span>
             </li>
-            <li>
-              <strong>{t.mouth}:</strong> {t.mouthText}
+
+            <li className="flex gap-2">
+              <Brain className="w-4 h-4 mt-1 text-red-500" />
+              <span>
+                <strong>Neurológicos:</strong> alteraciones del lenguaje o atención.
+              </span>
+            </li>
+
+            <li className="flex gap-2">
+              <AlertTriangle className="w-4 h-4 mt-1 text-red-500" />
+              <span>
+                <strong>Generales:</strong> mareos, cefaleas intensas, anorexia
+                o crecimiento inadecuado.
+              </span>
             </li>
           </ul>
         </Card>
-      </section>
+      </motion.div>
 
-      {/* Estado de Ánimo */}
-      <Card className="p-5 bg-purple-50 border-none">
-        <div className="flex items-start gap-3 mb-3">
-          <Brain className="w-6 h-6 text-purple-500" />
-          <Typography.Small className="font-bold text-purple-800">
-            {t.moodFatigueTitle}
-          </Typography.Small>
-        </div>
-        <ul className="text-sm text-purple-700 space-y-2 list-disc list-inside">
-          <li>
-            <strong>{t.chronicFatigue}:</strong> {t.chronicFatigueText}
-          </li>
-          <li>
-            <strong>{t.cognitiveAlterations}:</strong> {t.cognitiveAlterationsText}
-          </li>
-          <li>
-            <strong>{t.lowPerformance}:</strong> {t.lowPerformanceText}
-          </li>
-        </ul>
-      </Card>
+      {/* EFECTOS SECUNDARIOS */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        <Card className="p-6 bg-amber-50 border-l-4 border-amber-500 shadow-md">
+          <div className="flex items-start gap-3 mb-4">
+            <Pill className="w-6 h-6 text-amber-600" />
+            <Typography.H2 className="text-amber-700 text-lg font-bold">
+              ⚠️ Recordatorio de Efectos Secundarios
+            </Typography.H2>
+          </div>
+
+          <Typography.P className="text-sm text-amber-800 mb-4 font-medium">
+            Es vital educar al paciente para evitar el abandono del tratamiento
+            por efectos adversos comunes:
+          </Typography.P>
+
+          <ul className="space-y-3 text-sm text-gray-800">
+            <li>
+              <strong>Heces oscuras:</strong> es normal y temporal, no es signo de alarma.
+            </li>
+
+            <li>
+              <strong>Estreñimiento / Diarrea:</strong> se sugiere fraccionar la dosis
+              o cambiar el horario.
+            </li>
+
+            <li>
+              <strong>Dolor estomacal:</strong> dar el suplemento junto con el
+              refrigerio (evitando lácteos).
+            </li>
+
+            <li>
+              <strong>Manchas en dientes:</strong> mezclar con agua o jugo y evitar
+              contacto prolongado con la boca.
+            </li>
+          </ul>
+        </Card>
+      </motion.div>
 
     </div>
   );
